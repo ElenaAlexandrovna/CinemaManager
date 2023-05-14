@@ -29,7 +29,7 @@ public class CinemaManagerTest {
     }
 
     @Test
-    void findLastCinemaTest(){
+    void findLastCinemaTest() {
         CinemaManager manager = new CinemaManager(5);
         Cinema film1 = new Cinema(10, "Бладшот", "боевик");
         Cinema film2 = new Cinema(15, "Вперёд", "мультфильм");
@@ -49,8 +49,31 @@ public class CinemaManagerTest {
 
         Cinema[] expected = new Cinema[]{film7, film6, film5, film4, film3};
         Cinema[] actual = manager.findLast();
-        Assertions.assertArrayEquals(expected,actual);
+        Assertions.assertArrayEquals(expected, actual);
 
+
+    }
+
+    @Test
+    void findLastCinemaTest2() {
+        CinemaManager manager = new CinemaManager(7);
+        Cinema film1 = new Cinema(10, "Бладшот", "боевик");
+        Cinema film2 = new Cinema(15, "Вперёд", "мультфильм");
+        Cinema film3 = new Cinema(20, "Джентельмены", "Боевик");
+        Cinema film4 = new Cinema(25, "Отель Белград", "комедия");
+        Cinema film5 = new Cinema(30, "Человек-Невидимка", "ужасы");
+
+
+        manager.addCinema(film1);
+        manager.addCinema(film2);
+        manager.addCinema(film3);
+        manager.addCinema(film4);
+        manager.addCinema(film5);
+
+
+        Cinema[] expected = new Cinema[]{film5, film4, film3, film2, film1};
+        Cinema[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
 
 
     }
